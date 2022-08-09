@@ -1,0 +1,24 @@
+.form{
+    background-color: white;
+    border-radius: 5px;
+    width: 550px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.form-body{
+    text-align:end;
+    padding: 20px 10px;
+}
+.form-body > *{
+    padding: 5px;
+}
+.form__label{
+    width: 50%;
+}
+.form__input{
+    width:50%;
+}
+
+.footer{
+    text-align: center;
+}
