@@ -11,7 +11,7 @@ const Cadastro = () =>{
     const [cpf,setCpf] = useState(null);
 
     const [errorMessages, setErrorMessages] = useState({});
-
+    const [isRegistered, setIsRegistered] = useState(false);
     const errors = {
         nome: "nome inválido",
         senha: "senha inválida",
@@ -106,6 +106,7 @@ const Cadastro = () =>{
             database.push(obj);
             window.localStorage.setItem('database',JSON.stringify(database));
             console.log(JSON.parse(window.localStorage.getItem('database')));
+            setIsRegistered(true);
         }
         else{
             if(!nome)setErrorMessages({ id: "nome", message: errors.nome });
@@ -117,7 +118,7 @@ const Cadastro = () =>{
         
     }
 
-    return(
+    const renderForm = (
         <div className="form">
             <div className="form-body">
                 <div className="nome">
@@ -156,5 +157,13 @@ const Cadastro = () =>{
             </div>
         </div>
     );
+    return (
+        <div className="cadastro">
+          <div className="cadastro-form">
+            <div className="title">Cadastro</div>
+            {isRegistered ? <div>Usuário cadastrado com sucesso</div> : renderForm}
+          </div>
+        </div>
+      );
 };
 export default Cadastro;
