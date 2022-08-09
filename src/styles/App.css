@@ -1,0 +1,9 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.App_Conteudo {
+  flex-grow: 1;
+  padding: 20px;
+}
