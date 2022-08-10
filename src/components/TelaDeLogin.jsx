@@ -1,7 +1,6 @@
 import "../styles/Formulario.css";
 import React,{useState} from "react";
 import database from "../database"
-import logado from "../database"
 import Link from '@mui/material/Link';
 
 const Login = () =>{
@@ -46,16 +45,14 @@ const Login = () =>{
         
     }
     const handleSubmit  = () => {
-        console.log(JSON.parse(window.localStorage.getItem('database')));
+        /*console.log(JSON.parse(window.localStorage.getItem('database')));*/
+        let emailContido = false;
         database.forEach(user => {
-            let emailContido = false;
+            
             if(email === user.email){
                 emailContido = true;
                 if(senha === user.senha){
                     setIsLogged(true);
-                    logado = isLogged
-                    window.localStorage.setItem('logado',JSON.stringify(logado));
-                    console.log(logado);
                 }
                 setErrorMessages({ id: "credenciaisErradas", message: errors.senhaErrada });
             }
@@ -67,28 +64,34 @@ const Login = () =>{
         <div className="form">
             <div className="form-body">                
                 <div className="email">
-                    <label className="form__label">Email: </label>
+                    <label className="form__label"></label>
                     <input className="form__input" type="email" autoComplete="email" id="email" 
-                    onChange = {(e) => handleInputChange(e)} placeholder="Digite seu email" required="required"/>
+                    onChange = {(e) => handleInputChange(e)} placeholder="Email" required="required"/>
                     {renderErrorMessage("email")}
                 </div>
                 <div className="senha">
-                    <label className="form__label">Senha: </label>
+                    <label className="form__label"></label>
                     <input className="form__input" type="password" autoComplete="new-password" id="senha" 
-                    onChange = {(e) => handleInputChange(e)} placeholder="Digite sua senha" required="required"/>
+                    onChange = {(e) => handleInputChange(e)} placeholder="Senha" required="required"/>
                     {renderErrorMessage("senha")}
                 </div>               
             </div>
-            <div className="footer">
-                <button type="submit" onClick={()=>handleSubmit()} className="botao">Entrar</button>
-                <div className="cadastrar">
-                <Link href="/cadastro" >
-                    Ainda não sou cadastrado
-                </Link>
+            <div className="footer">                
+                <button type="submit" onClick={()=>handleSubmit()} className="botao">Entrar</button>   
+            
             </div>
+            <div className="loginFooter">
+                <div className="notRegistered">{renderErrorMessage("credenciaisErradas")}</div>
+                
+                <div className="cadastrar">
+                <Link href="/cadastro" >Criar conta</Link>
+                </div>
+                
             </div>
             
-            {renderErrorMessage("credenciaisErradas")}
+            
+            
+            
              
         </div>
     );
