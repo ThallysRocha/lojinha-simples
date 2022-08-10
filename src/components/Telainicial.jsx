@@ -1,9 +1,9 @@
-import Login from './TelaDeLogin';
+import TelaDeLogin from './TelaDeLogin';
 import "../styles/TelaInicial.css"
 const TelaInicial = () => {
     return(
         <div>
-            <Login/>
+            <TelaDeLogin/>
             
         </div>
     );

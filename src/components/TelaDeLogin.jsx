@@ -3,7 +3,7 @@ import React,{useState} from "react";
 import database from "../database"
 import Link from '@mui/material/Link';
 
-const Login = () =>{
+const TelaDeLogin = () =>{
     const [errorMessages, setErrorMessages] = useState({});
     const [isLogged, setIsLogged] = useState(false);
     const [email, setEmail] = useState(null);
@@ -107,4 +107,4 @@ const Login = () =>{
     );
 };
 
-export default Login;
+export default TelaDeLogin;
