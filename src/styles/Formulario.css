@@ -21,13 +21,13 @@
 
 .footer{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 .error {
     color: red;
     font-size: 12px;
   }
-  .cadastro {
+  .finalizado {
     font-family: sans-serif;
     display: flex;
     align-items: center;
@@ -42,7 +42,7 @@
     font-size: 25px;
     margin-bottom: 20px;
   }
-  .cadastro-form {
+  .finalizado-form {
     background-color: white;
     padding: 2rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -64,5 +64,10 @@ button[type="submit"] {
   button[type="submit"]:hover {
     background: #6cf0c2;
   }
-  
-  
+  .cadastrar{
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #fff;
+    padding: 10px 20px;
+  }

@@ -1,6 +1,7 @@
-import "../styles/TelaDeCadastro.css";
+import "../styles/Formulario.css";
 import React,{useState} from "react";
 import database from "../database"
+
 
 
 const Cadastro = () =>{
@@ -32,7 +33,7 @@ const Cadastro = () =>{
         if(id === "nome"){
             if(e.target.checkValidity()){
                 setNome(value);
-                setErrorMessages({ id: "email", message: ""});
+                setErrorMessages({ id: "nome", message: ""});
             }
             else{
                 setErrorMessages({ id: "nome", message: errors.nome });
@@ -42,7 +43,7 @@ const Cadastro = () =>{
         if(id === "senha"){
             if(e.target.checkValidity()){
                 setSenha(value);
-                setErrorMessages({ id: "email", message: ""});
+                setErrorMessages({ id: "senha", message: ""});
             }
             else{
                 setErrorMessages({ id: "senha", message: errors.senha });
@@ -62,7 +63,7 @@ const Cadastro = () =>{
         if(id === "nascimento"){
             if(e.target.checkValidity()){
                 setNascimento(value);
-                setErrorMessages({ id: "email", message: ""});
+                setErrorMessages({ id: "nascimento", message: ""});
             }
             else{
                 setErrorMessages({ id: "nascimento", message: errors.nascimento });
@@ -72,7 +73,7 @@ const Cadastro = () =>{
         if(id === "cpf"){
             if(e.target.checkValidity()){
                 setCpf(value);
-                setErrorMessages({ id: "email", message: ""});
+                setErrorMessages({ id: "cpf", message: ""});
             }
             else{
                 setErrorMessages({ id: "cpf", message: errors.cpf });
@@ -158,8 +159,8 @@ const Cadastro = () =>{
         </div>
     );
     return (
-        <div className="cadastro">
-          <div className="cadastro-form">
+        <div className="finalizado">
+          <div className="finalizado-form">
             <div className="title">Cadastro</div>
             {isRegistered ? <div>Usuário cadastrado com sucesso</div> : renderForm}
           </div>
