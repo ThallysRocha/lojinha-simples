@@ -3,7 +3,8 @@
     border-radius: 5px;
     width: 550px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 20px;    
+    font-family: sans-serif;
 }
 .form-body{
     text-align:center;
@@ -36,7 +37,6 @@
     flex-direction: column;
     gap: 20px;
     height: 100vh;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     background-color: #f8f9fd;
   }
   .title {
@@ -51,7 +51,9 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 input[type="text"],
-input[type="password"],input[type="email"] {
+input[type="password"],
+input[type="email"], 
+input[type="date"] {
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -83,4 +85,17 @@ button[type="submit"] {
     font-size: 15px;
     color: #fff;
     padding: 10px 20px;
+  }
+  .nascimento{
+    font-size: 15px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cpf{
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
