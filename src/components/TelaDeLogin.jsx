@@ -67,9 +67,10 @@ const TelaDeLogin = () =>{
                     }
                     setErrorMessages({ id: "credenciaisErradas", message: errors.senhaErrada });
                 }
-                if(!emailContido) setErrorMessages({ id: "credenciaisErradas", message: errors.foraDoSistema });
+                
             });
-
+            
+            if(!emailContido) setErrorMessages({ id: "credenciaisErradas", message: errors.foraDoSistema });
         }
         
     }
