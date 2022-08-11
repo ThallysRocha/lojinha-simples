@@ -1,5 +1,5 @@
 .productList{
-    margin: auto;
+    margin-bottom: 50px;
 }
 .productList-body{
     display: flex;
