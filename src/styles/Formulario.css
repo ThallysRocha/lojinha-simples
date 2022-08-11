@@ -6,8 +6,9 @@
     padding: 20px;
 }
 .form-body{
-    text-align:end;
+    text-align:center;
     padding: 20px 10px;
+
 }
 .form-body > *{
     padding: 5px;
@@ -21,13 +22,13 @@
 
 .footer{
     display: flex;
-    justify-content: center;
+    justify-content:center;
 }
 .error {
     color: red;
-    font-size: 12px;
+    font-size: 14px;
   }
-  .cadastro {
+  .finalizado {
     font-family: sans-serif;
     display: flex;
     align-items: center;
@@ -39,16 +40,18 @@
     background-color: #f8f9fd;
   }
   .title {
+    display: flex;
     font-size: 25px;
     margin-bottom: 20px;
+    justify-content: center;
   }
-  .cadastro-form {
+  .finalizado-form {
     background-color: white;
     padding: 2rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 input[type="text"],
-input[type="password"] {
+input[type="password"],input[type="email"] {
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -64,5 +67,20 @@ button[type="submit"] {
   button[type="submit"]:hover {
     background: #6cf0c2;
   }
-  
-  
+  .loginFooter{
+    margin-top: 50px;
+  }
+  .notRegistered{
+    display: flex;
+    justify-content: center;
+  }
+  .cadastrar{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    
+    cursor: pointer;
+    font-size: 15px;
+    color: #fff;
+    padding: 10px 20px;
+  }

@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import TelaInicial from "./Telainicial"
+import TelaInicial from "./TelaInicial"
 import TelaDeLogin from "./TelaDeLogin"
 import TelaDeCadastro from "./TelaDeCadastro"
 import TelaDePedidoFinalizado from "./TelaDePedidoFinalizado"

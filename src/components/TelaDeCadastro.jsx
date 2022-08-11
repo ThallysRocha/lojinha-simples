@@ -1,6 +1,7 @@
-import "../styles/TelaDeCadastro.css";
+import "../styles/Formulario.css";
 import React,{useState} from "react";
 import database from "../database"
+
 
 
 const Cadastro = () =>{
@@ -41,7 +42,7 @@ const Cadastro = () =>{
         if(id === "nome"){
 
             setNome(value);
-
+            
             if(e.target.checkValidity()){                
                 setErrorMessages({ id: "nome", message: ""});
                 setNomeValid(true);
@@ -50,7 +51,6 @@ const Cadastro = () =>{
                 setErrorMessages({ id: "nome", message: errors.nome });
                 setNomeValid(false);
             }
-            
         }        
         if(id === "email"){
 
@@ -81,7 +81,6 @@ const Cadastro = () =>{
             
         }
         if(id === "nascimento"){
-
             setNascimento(value);
 
             if(e.target.checkValidity()){                
@@ -99,8 +98,8 @@ const Cadastro = () =>{
             setCpf(value);
 
             if(e.target.checkValidity()){                
+                setCpfValid(true);                
                 setErrorMessages({ id: "cpf", message: ""});
-                setCpfValid(true);
             }
             else{
                 setErrorMessages({ id: "cpf", message: errors.cpf });
@@ -189,8 +188,8 @@ const Cadastro = () =>{
         </div>
     );
     return (
-        <div className="cadastro">
-          <div className="cadastro-form">
+        <div className="finalizado">
+          <div className="finalizado-form">
             <div className="title">Cadastro</div>
             {isRegistered ? <div>Usuário cadastrado com sucesso</div> : renderForm}
           </div>
