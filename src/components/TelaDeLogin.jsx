@@ -2,7 +2,7 @@ import "../styles/Formulario.css";
 import React,{useState} from "react";
 import database from "../database"
 import Link from '@mui/material/Link';
-
+import { useNavigate } from "react-router-dom";
 const TelaDeLogin = () =>{
     const [errorMessages, setErrorMessages] = useState({});
     const [isLogged, setIsLogged] = useState(false);
@@ -104,12 +104,12 @@ const TelaDeLogin = () =>{
         </div>
     );
 
-
+    const navigate = useNavigate();
     return(
         <div className="finalizado">
           <div className="finalizado-form">
             <div className="title">Login</div>
-            {isLogged ? <div>Login realizado com sucesso</div> : renderForm}
+            {isLogged ?  navigate("/produtos") : renderForm}
           </div>
         </div>
     );
