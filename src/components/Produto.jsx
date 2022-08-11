@@ -1,6 +1,6 @@
 import "../styles/Produto.css"
 
-const TelaDeProduto = (props) => {
+const Produto = (props) => {
     return (
     <div className="product">
         <div className="pic" ><img src={`${props.image}`} alt={`${props.title}`} /></div>
@@ -13,4 +13,4 @@ const TelaDeProduto = (props) => {
     );
   };
   
-  export default TelaDeProduto;
+  export default Produto;
