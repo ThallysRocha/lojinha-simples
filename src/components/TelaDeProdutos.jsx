@@ -18,18 +18,24 @@ const TelaDeProdutos = () => {
 
   return (
     <>
-      <h1>Produtos</h1>
-      {products.map((product) => {
-        return (          
-            <Produto
-              id={product.id}
-              image={product.image}
-              title={product.title}
-              price={product.price}
-              category={product.category}
-            />
-        );
-      })}
+      <h1 className="title">Produtos</h1>
+      <div className="productList">
+        <div className="productList-body">{
+          products.map((product) => {
+            return (          
+                <Produto
+                  id={product.id}
+                  image={product.image}
+                  title={product.title}
+                  price={product.price}
+                  category={product.category}
+                />
+            );
+          })}
+        </div>
+      </div>
+      
+      
     </>
   );
 };
