@@ -4,14 +4,23 @@ import database from "../database"
 
 
 const Cadastro = () =>{
+
     const [nome, setNome] = useState(null);
     const [email, setEmail] = useState(null);
     const [senha, setSenha] = useState(null);
     const [nascimento,setNascimento] = useState(null);
     const [cpf,setCpf] = useState(null);
 
+    const [nomeValid, setNomeValid] = useState(false);
+    const [emailValid, setEmailValid] = useState(false);
+    const [senhaValid, setSenhaValid] = useState(false);
+    const [nascimentoValid,setNascimentoValid] = useState(false);
+    const [cpfValid,setCpfValid] = useState(false);
+
     const [errorMessages, setErrorMessages] = useState({});
+
     const [isRegistered, setIsRegistered] = useState(false);
+
     const errors = {
         nome: "nome inválido",
         senha: "senha inválida",
@@ -30,91 +39,113 @@ const Cadastro = () =>{
     const handleInputChange = (e) => {
         const {id , value} = e.target;
         if(id === "nome"){
-            if(e.target.checkValidity()){
-                setNome(value);
-                setErrorMessages({ id: "email", message: ""});
+
+            setNome(value);
+
+            if(e.target.checkValidity()){                
+                setErrorMessages({ id: "nome", message: ""});
+                setNomeValid(true);
             }
             else{
                 setErrorMessages({ id: "nome", message: errors.nome });
+                setNomeValid(false);
             }
             
-        }
-        if(id === "senha"){
-            if(e.target.checkValidity()){
-                setSenha(value);
-                setErrorMessages({ id: "email", message: ""});
-            }
-            else{
-                setErrorMessages({ id: "senha", message: errors.senha });
-            }
-            
-        }
+        }        
         if(id === "email"){
-            if(e.target.checkValidity()){
-                setEmail(value);
+
+            setEmail(value);
+
+            if(e.target.checkValidity()){                
                 setErrorMessages({ id: "email", message: ""});
+                setEmailValid(true);
             }
             else{
                 setErrorMessages({ id: "email", message: errors.email });
+                setEmailValid(false);
             }           
             
         }
+        if(id === "senha"){
+
+            setSenha(value);
+
+            if(e.target.checkValidity()){                
+                setErrorMessages({ id: "senha", message: ""});
+                setSenhaValid(true);
+            }
+            else{
+                setErrorMessages({ id: "senha", message: errors.senha });
+                setSenhaValid(false);
+            }
+            
+        }
         if(id === "nascimento"){
-            if(e.target.checkValidity()){
-                setNascimento(value);
-                setErrorMessages({ id: "email", message: ""});
+
+            setNascimento(value);
+
+            if(e.target.checkValidity()){                
+                setErrorMessages({ id: "nascimento", message: ""});
+                setNascimentoValid(true);
             }
             else{
                 setErrorMessages({ id: "nascimento", message: errors.nascimento });
+                setNascimentoValid(false);
             }
             
         }
         if(id === "cpf"){
-            if(e.target.checkValidity()){
-                setCpf(value);
-                setErrorMessages({ id: "email", message: ""});
+
+            setCpf(value);
+
+            if(e.target.checkValidity()){                
+                setErrorMessages({ id: "cpf", message: ""});
+                setCpfValid(true);
             }
             else{
                 setErrorMessages({ id: "cpf", message: errors.cpf });
+                setCpfValid(false);
             }
             
         }
     }
+
     let cpfUnico = true;
     let emailUnico = true;
+    
     const handleSubmit  = () => {
-
-        database.forEach(user => {
-            if(cpf === user.cpf){
-                cpfUnico = false;
-                setErrorMessages({ id: "cpf", message: errors.cpfRepetido });
-            }
-            if(email === user.email){
-                emailUnico = false;
-                setErrorMessages({ id: "email", message: errors.emailRepetido });
-            }
-        });
-        if(cpfUnico && emailUnico && nome && cpf && senha && email && nascimento){
-            let obj = {
-            nome : nome,
-            email : email,
-            senha: senha,
-            nascimento : nascimento,
-            cpf : cpf,
-            };
-            
-            database.push(obj);
-            window.localStorage.setItem('database',JSON.stringify(database));
-            console.log(JSON.parse(window.localStorage.getItem('database')));
-            setIsRegistered(true);
-        }
+        if(!nomeValid)setErrorMessages({ id: "nome", message: errors.nome });
+        else if(!emailValid)setErrorMessages({ id: "email", message: errors.email });
+        else if(!senhaValid)setErrorMessages({ id: "senha", message: errors.senha});
+        else if(!nascimentoValid)setErrorMessages({ id: "nascimento", message: errors.nascimento });
+        else if(!cpfValid)setErrorMessages({ id: "cpf", message: errors.cpf });
         else{
-            if(!nome)setErrorMessages({ id: "nome", message: errors.nome });
-            if(!senha)setErrorMessages({ id: "senha", message: errors.senha});
-            if(!email)setErrorMessages({ id: "email", message: errors.email });
-            if(!nascimento)setErrorMessages({ id: "nascimento", message: errors.nascimento });
-            if(!cpf)setErrorMessages({ id: "cpf", message: errors.cpf });
+            database.forEach(user => {
+                        if(cpf === user.cpf){
+                            cpfUnico = false;
+                            setErrorMessages({ id: "cpf", message: errors.cpfRepetido });
+                        }
+                        if(email === user.email){
+                            emailUnico = false;
+                            setErrorMessages({ id: "email", message: errors.emailRepetido });
+                        }
+                    });
+            if(cpfUnico && emailUnico){
+                let obj = {
+                nome : nome,
+                email : email,
+                senha: senha,
+                nascimento : nascimento,
+                cpf : cpf,
+                };
+                
+                database.push(obj);
+                window.localStorage.setItem('database',JSON.stringify(database));
+                console.log(JSON.parse(window.localStorage.getItem('database')));
+                setIsRegistered(true);
+            }
         }
+        
         
     }
 
