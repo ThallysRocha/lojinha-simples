@@ -8,6 +8,8 @@ const TelaDeLogin = () =>{
     const [isLogged, setIsLogged] = useState(false);
     const [email, setEmail] = useState(null);
     const [senha, setSenha] = useState(null);
+    const [emailValid, setEmailValid] = useState(false);
+    const [senhaValid, setSenhaValid] = useState(false);
     const errors = {
         senha: "senha inválida",
         email: "email inválido",
@@ -22,42 +24,53 @@ const TelaDeLogin = () =>{
     const handleInputChange = (e) => {
         const {id , value} = e.target;
 
-        if(id === "senha"){
-            if(e.target.checkValidity()){
-                setSenha(value);
-                setErrorMessages({ id: "senha", message: ""});
-            }
-            else{
-                setErrorMessages({ id: "senha", message: errors.senha });
-            }
-            
-        }
         if(id === "email"){
-            if(e.target.checkValidity()){
-                setEmail(value);
+            setEmail(value);
+            if(e.target.checkValidity()){                
                 setErrorMessages({ id: "email", message: ""});
+                setEmailValid(true);
             }
             else{
                 setErrorMessages({ id: "email", message: errors.email });
+                setEmailValid(false);
             }           
             
         }
+        if(id === "senha"){
+            setSenha(value);
+            if(e.target.checkValidity()){                
+                setErrorMessages({ id: "senha", message: ""});
+                setSenhaValid(true);
+            }
+            else{
+                setErrorMessages({ id: "senha", message: errors.senha });
+                setSenhaValid(false);
+            }
+            
+        }
+        
         
     }
     const handleSubmit  = () => {
         /*console.log(JSON.parse(window.localStorage.getItem('database')));*/
         let emailContido = false;
-        database.forEach(user => {
-            
-            if(email === user.email){
-                emailContido = true;
-                if(senha === user.senha){
-                    setIsLogged(true);
+        if(!emailValid){setErrorMessages({ id: "email", message: errors.email });}
+        else if(!senhaValid){setErrorMessages({ id: "senha", message: errors.senha });}
+        else{
+
+            database.forEach(user => {
+                
+                if(email === user.email){
+                    emailContido = true;
+                    if(senha === user.senha){
+                        setIsLogged(true);
+                    }
+                    setErrorMessages({ id: "credenciaisErradas", message: errors.senhaErrada });
                 }
-                setErrorMessages({ id: "credenciaisErradas", message: errors.senhaErrada });
-            }
-            if(!emailContido) setErrorMessages({ id: "credenciaisErradas", message: errors.foraDoSistema });
-        });
+                if(!emailContido) setErrorMessages({ id: "credenciaisErradas", message: errors.foraDoSistema });
+            });
+
+        }
         
     }
     const renderForm = (
@@ -87,12 +100,7 @@ const TelaDeLogin = () =>{
                 <Link href="/cadastro" >Criar conta</Link>
                 </div>
                 
-            </div>
-            
-            
-            
-            
-             
+            </div> 
         </div>
     );
 
