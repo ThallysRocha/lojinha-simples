@@ -13,8 +13,7 @@ const TelaDeProdutos = () => {
     };
 
     initializeProducts();
-    console.log(products)
-  }, []);
+  },[]);
 
   return (
     <>

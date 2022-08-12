@@ -41,7 +41,7 @@
 .name{
     font-size: 15px;
 }
-button{
+.cartAdd{
     margin-top: 10px;
     cursor: pointer;
     font-size: 15px;
@@ -50,3 +50,6 @@ button{
     color: rgb(0, 0, 0);
     padding: 10px 20px;
   }
+.cartAdd:hover{
+    background: #f8e800;
+}

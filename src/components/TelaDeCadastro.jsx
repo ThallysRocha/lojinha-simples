@@ -140,7 +140,6 @@ const Cadastro = () =>{
                 
                 database.push(obj);
                 window.localStorage.setItem('database',JSON.stringify(database));
-                console.log(JSON.parse(window.localStorage.getItem('database')));
                 setIsRegistered(true);
             }
         }

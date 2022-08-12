@@ -63,6 +63,7 @@ const TelaDeLogin = () =>{
                 if(email === user.email){
                     emailContido = true;
                     if(senha === user.senha){
+                        localStorage.removeItem('cart');
                         setIsLogged(true);
                     }
                     setErrorMessages({ id: "credenciaisErradas", message: errors.senhaErrada });
