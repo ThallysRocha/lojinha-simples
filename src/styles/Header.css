@@ -3,7 +3,7 @@
   box-sizing: border-box;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: baseline;
   padding: 1em;
   margin-bottom: 2em;
@@ -15,4 +15,12 @@
     height: 40px;
     display: flex;
     align-items: center;
+}
+.imgCart{
+  display: flex;
+  flex-direction: row;
+
+}
+.cont{
+  background: brown;
 }

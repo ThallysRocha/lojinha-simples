@@ -150,3 +150,20 @@
 .back:hover{
   background: #e8de5c;
 }
+.button-body{
+  display: flex ;
+  flex-direction: row;
+}
+.backToCart{
+  margin-top: 100px;
+  height: fit-content;
+  cursor: pointer;
+  font-size: 12px;
+  background: #e1b940;
+  border: 1px solid #d1c236;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+}
+.backToCart:hover{
+  background: #e8de5c;
+}

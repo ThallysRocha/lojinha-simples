@@ -36,7 +36,10 @@ const TelaDePedidoFinalizado = () =>{
                         <option value="debito">Cartão de débito</option>
                     </select>
                 </div>
-                <button className="buy" onClick={()=>{pay()}}>Comprar</button>
+                <div>
+                    <button className="buy" onClick={()=>{pay()}}>Comprar</button>
+                </div>
+                <button className="backToCart" onClick={()=>{navigate("/carrinho")}}>Voltar ao carrinho</button>
         </div>
     </div>
   );
