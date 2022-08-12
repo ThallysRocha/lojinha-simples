@@ -12,8 +12,8 @@ const TelaDoCarrinho = () => {
         let filtered = products.filter(function(value, index, arr){ 
             return value !== product;
         });
-        setProducts(filtered);
         window.localStorage.setItem('cart',JSON.stringify(filtered));            
+        setProducts(filtered);
         
     }
     const addProduct = (product) =>{
@@ -42,9 +42,9 @@ const TelaDoCarrinho = () => {
   return (
     <>
       <div className="head">
-        <h1 className="title">Carrinho</h1>
-        <></>
-        <button className="buy" onClick={()=>{navigate("/finalizado")}}>Finalizar compra</button>
+        <button className="back" onClick={()=>{navigate("/produtos")}}>Voltar</button>
+        <h1 className="title">Carrinho</h1>        
+        <button className="buy" onClick={()=>{products.length === 0?navigate("/produtos"):navigate("/finalizado")}}>Finalizar compra</button>
       </div>
       
       <div className="productList">
@@ -61,14 +61,14 @@ const TelaDoCarrinho = () => {
                         <button className="add" onClick={()=>{addProduct(product)}}>+</button>
                         <div className="quantity-text">Quantidade: {product.quantity}</div>    
                         <button className="remove" onClick={()=>{subProduct(product)}}>-</button>                     
-                    </div>
-                                    
-                    
-
+                    </div>           
                 </div>
             );
           })}
         </div>
+      </div>
+      <div className="emptyCart">
+        {products.length === 0 && <p>Seu carrinho está vazio.</p>}
       </div>
       
       

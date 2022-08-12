@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+import "../styles/PedidoFinalizado.css";
+import { useNavigate } from "react-router-dom";
 const TelaDePedidoFinalizado = () =>{
+    const navigate = useNavigate();
     const [cost, setCost] = useState(0);
     const [isConfirmed, setIsConfirmed] = useState(false);
     useEffect(()=>{    
@@ -33,15 +36,20 @@ const TelaDePedidoFinalizado = () =>{
                         <option value="debito">Cartão de débito</option>
                     </select>
                 </div>
-                <button onClick={()=>{pay()}}>Comprar</button>
+                <button className="buy" onClick={()=>{pay()}}>Comprar</button>
         </div>
     </div>
   );
-    
+  const endOrder = (
+    <div className="endOrder">
+        Pedido Finalizado, obrigado!
+        <button className="buyAgain" onClick={()=>{navigate("/produtos")}}>Continuar comprando</button>
+    </div>
+  );  
   
   return (
     <div className="finalizado">
-        {isConfirmed ? <div>Pedido Finalizado, obrigado!</div> : renderPayment}
+        {isConfirmed ? endOrder : renderPayment}
     </div>
   );
 };

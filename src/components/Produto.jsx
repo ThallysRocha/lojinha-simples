@@ -1,11 +1,13 @@
 import "../styles/Produto.css"
-import cart from "../cart.js"
+
+let cart = JSON.parse(window.localStorage.getItem('cart'));
 const addToCart = (product) => {
     let newItem = true;
     cart.forEach(e => {
-        if(e === product){
+        if(e.id === product.id){
             newItem = false;
         }
+        
     });
     if(newItem){
         cart.push({
@@ -16,7 +18,6 @@ const addToCart = (product) => {
             quantity:1,
         });
         window.localStorage.setItem('cart',JSON.stringify(cart));
-        console.log(JSON.parse(window.localStorage.getItem('cart')))
     }
 }
 const Produto = (props) => {
