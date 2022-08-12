@@ -48,7 +48,7 @@ const TelaDoCarrinho = () => {
       </div>
       
       <div className="productList">
-        <div className="productList-body">{
+        <div className="body">{
           products.map((product) => {
             return (          
                 <div className="product">
