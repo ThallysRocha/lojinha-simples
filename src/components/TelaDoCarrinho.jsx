@@ -41,10 +41,13 @@ const TelaDoCarrinho = () => {
     
   return (
     <>
-      <h1 className="title">Carrinho</h1>
+      <div className="head">
+        <h1 className="title">Carrinho</h1>
+        <></>
+        <button className="buy" onClick={()=>{navigate("/finalizado")}}>Finalizar compra</button>
+      </div>
       
       <div className="productList">
-        <button className="buy" onClick={()=>{navigate("/finalizado")}}>Finalizar compra</button>
         <div className="productList-body">{
           products.map((product) => {
             return (          
@@ -55,9 +58,9 @@ const TelaDoCarrinho = () => {
                     <p className="category">{product.category}</p>
                     <h4 className="price">R${(5.27*product.price).toFixed(2)}</h4>
                     <div className="quantity">
-                        <button className="add" onClick={()=>{addProduct(product)}}>adicionar</button>
-                        <button className="remove" onClick={()=>{subProduct(product)}}>remover</button>                     
-                        <p>quantidade no carrinho: {product.quantity}</p>    
+                        <button className="add" onClick={()=>{addProduct(product)}}>+</button>
+                        <div className="quantity-text">Quantidade: {product.quantity}</div>    
+                        <button className="remove" onClick={()=>{subProduct(product)}}>-</button>                     
                     </div>
                                     
                     
