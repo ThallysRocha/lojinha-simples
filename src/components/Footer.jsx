@@ -3,8 +3,8 @@ import "../styles/Footer.css";
 const Footer = () => {
     return(
       <div className = "Footer">
-        <Link href="/">
-            voltar ao inicio
+        <Link href="/" className='logOut'>
+            Sair
         </Link>
       </div>       
         

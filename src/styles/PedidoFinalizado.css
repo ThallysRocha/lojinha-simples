@@ -1,0 +1,29 @@
+.finalizado {
+    display: flex;
+    height: 680px;
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .endOrder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+.buyAgain{
+    margin-top: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    background: #e1b940;
+    border: 1px solid #d1c236;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+}
+.buyAgain:hover{
+    background: #e8de5c;
+}
+.cost{
+    font-size: xx-large;
+    margin: 20px;
+  }

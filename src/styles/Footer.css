@@ -9,3 +9,7 @@
   left: 0;
   width: 100%;
 }
+.logOut:link{
+  text-decoration: none;
+  font-size: large;
+}
