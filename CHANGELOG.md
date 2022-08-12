@@ -1,5 +1,11 @@
 ## Unreleased
+## 12-08-2022
+- [3bf35848](https://gitlab.com/mosty-treinamentos/08_2022/lojinha-simples/-/commit/3bf358486b788dc3eee5452febe81c9ab9f0cac8) - Adição de feature de mostrar a quantidade de itens distintos no carrinho.
+- [86eb9fcf](https://gitlab.com/mosty-treinamentos/08_2022/lojinha-simples/-/commit/86eb9fcfc5395365d80f5a0354785c12e7908a20) - Ajuste de erro no carrinho.
+- [8e261cee](https://gitlab.com/mosty-treinamentos/08_2022/lojinha-simples/-/commit/8e261ceef86035df7318a728a8ccf81e7135a1c4e) - Criação da tela de pagamento.
+- [89f5ea26](https://gitlab.com/mosty-treinamentos/08_2022/lojinha-simples/-/commit/89f5ea26577c4d7d4c3b8adb9f9035c7e1391f1e) - Criação da tela de finalização de compra.
 ## 11-08-2022
+- [4084fe0b](https://gitlab.com/mosty-treinamentos/08_2022/lojinha-simples/-/commit/4084fe0b6fa7d52d6d60be66a469b105298074fc) - Criação da tela do carrinho.
 - [0564048a](https://gitlab.com/mosty-treinamentos/08_2022/lojinha-simples/-/commit/0564048a08b76dd9f495ed14d2e2f0e3575e16e7) - Ajuste na lógica de um condicional de erro no login.
 - [5800074e](https://gitlab.com/mosty-treinamentos/08_2022/lojinha-simples/-/commit/5800074e2d6ec7314037656d984ed861d055588b) - Ajuste no nome do arquivo da tela inicial.
 - [1a860131](https://gitlab.com/mosty-treinamentos/08_2022/lojinha-simples/-/commit/1a860131248f8d83c93ef3a4205fd27ceffafe05) - Ajuste no visual da tela de produtos.
