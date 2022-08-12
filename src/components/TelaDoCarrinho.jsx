@@ -4,8 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 const TelaDoCarrinho = () => {
   const [products, setProducts] = useState([]);
-  useEffect(()=>{    
-        setProducts(JSON.parse(window.localStorage.getItem('cart')));
+  useEffect(()=>{
+        
+        if(JSON.parse(window.localStorage.getItem('cart')) !== null){
+          setProducts(JSON.parse(window.localStorage.getItem('cart')));
+        }    
   },[]);
     const navigate = useNavigate();  
     const removeProduct = (product) =>{

@@ -1,6 +1,7 @@
 import "../styles/Produto.css"
 
 let cart = JSON.parse(window.localStorage.getItem('cart'));
+if(cart === null) cart = [];
 const addToCart = (product) => {
     let newItem = true;
     cart.forEach(e => {
