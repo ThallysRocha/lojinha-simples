@@ -1,21 +1,18 @@
 import { useEffect, useState } from "react";
 import "../styles/TelaDeProdutos.css";
 import { useNavigate } from "react-router-dom";
+import { useCarrinho } from "../contexts/Carrinho"
 
 const TelaDoCarrinho = () => {
-  const [products, setProducts] = useState([]);
-  useEffect(()=>{
-        
-        if(JSON.parse(window.localStorage.getItem('cart')) !== null){
-          setProducts(JSON.parse(window.localStorage.getItem('cart')));
-        }    
-  },[]);
+    const {
+      products,setProducts,
+    } = useCarrinho();
     const navigate = useNavigate();  
     const removeProduct = (product) =>{
         let filtered = products.filter(function(value, index, arr){ 
             return value !== product;
         });
-        window.localStorage.setItem('cart',JSON.stringify(filtered));            
+        //window.localStorage.setItem('cart',JSON.stringify(filtered));            
         setProducts(filtered);
         
     }
@@ -24,7 +21,7 @@ const TelaDoCarrinho = () => {
             if(item === product){                
                 
                 item.quantity++;
-                window.localStorage.setItem('cart',JSON.stringify(products));
+                //window.localStorage.setItem('cart',JSON.stringify(products));
                 navigate("/carrinho");
             }
         });
@@ -36,7 +33,7 @@ const TelaDoCarrinho = () => {
                 else{
                     removeProduct(item);
                 }
-                window.localStorage.setItem('cart',JSON.stringify(products));
+                //window.localStorage.setItem('cart',JSON.stringify(products));
                 navigate("/carrinho");
             }
         });

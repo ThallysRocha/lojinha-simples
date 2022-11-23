@@ -7,14 +7,15 @@ import TelaDeProdutos from "./TelaDeProdutos"
 import TelaDoCarrinho from "./TelaDoCarrinho"
 import Header from "./Header"
 import Footer from "./Footer"
+import AppProvider from "../contexts/index"
 import '../styles/App.css';
 
 function App() {
   return (
     <div>
-      <Header/>
-      <div>
+      <AppProvider>
             <BrowserRouter>
+      <Header/>
               <Routes>
                 <Route path="/" element={<TelaInicial />} />
                 <Route path="/produtos" element={<TelaDeProdutos />} />
@@ -24,8 +25,8 @@ function App() {
                 <Route path="/finalizado" element={<TelaDePedidoFinalizado />} />                   
               </Routes>
             </BrowserRouter>
-          </div>
       <Footer/>
+          </AppProvider>
     </div>
   );
 }

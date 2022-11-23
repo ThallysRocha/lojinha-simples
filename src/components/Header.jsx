@@ -1,14 +1,13 @@
 import Link from '@mui/material/Link';
 import "../styles/Header.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useCarrinho } from "../contexts/Carrinho"
 const Header = () => {
-    const [count, setCount] = useState(0);
-    useEffect(()=>{
-        
-        let cart = JSON.parse(window.localStorage.getItem('cart'));
-        if(cart === null) cart = [];
-        setCount(cart.length);
-  },[count]);
+    const navigate = useNavigate();
+    const {
+        count,
+      } = useCarrinho();
     return(
         <div className="Header">
                 <h1 className='title'>Lojinha</h1>
